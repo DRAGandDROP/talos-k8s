@@ -49,6 +49,10 @@ jobs:
           echo IMAGE_REPOSITORY=$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]') >> $GITHUB_ENV
           echo IMAGE_TAG=$(echo ${{ github.ref }} | tr '[:upper:]' '[:lower:]' | awk '{split($0,a,"/"); print a[3]}') >> $GITHUB_ENV
 
+      # Here you can use IMAGE_REPOSITORY variable in subsequent steps
+      - name: Print IMAGE_REPOSITORY
+        run: echo $IMAGE_REPOSITORY
+
       - name: Build and push
         uses: devcontainers/ci@v0.3
         env:
