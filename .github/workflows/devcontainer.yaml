@@ -46,7 +46,7 @@ jobs:
 
       - name: PrepareReg Names
         run: |
-          echo IMAGE_REPOSITORY=$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]') >> $GITHUB_ENV
+          echo GITHUB_REPOSITORY=$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]') >> $GITHUB_ENV
           echo IMAGE_TAG=$(echo ${{ github.ref }} | tr '[:upper:]' '[:lower:]' | awk '{split($0,a,"/"); print a[3]}') >> $GITHUB_ENV
 
       - name: Build and push
@@ -54,7 +54,7 @@ jobs:
         env:
           BUILDX_NO_DEFAULT_ATTESTATIONS: true
         with:
-          imageName: ghcr.io/${{ image.repository }}/devcontainer
+          imageName: ghcr.io/${{ github.repository }}/devcontainer
           # cacheFrom: ghcr.io/${{ github.repository }}/devcontainer
           imageTag: base,latest
           platform: linux/amd64,linux/arm64
