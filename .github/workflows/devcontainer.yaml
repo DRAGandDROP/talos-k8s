@@ -58,7 +58,7 @@ jobs:
         env:
           BUILDX_NO_DEFAULT_ATTESTATIONS: true
         with:
-          imageName: ghcr.io/$IMAGE_REPOSITORY/devcontainer
+          imageName: ghcr.io/${{ env.IMAGE_REPOSITORY }}/devcontainer
           # cacheFrom: ghcr.io/${{ github.repository }}/devcontainer
           imageTag: base,latest
           platform: linux/amd64,linux/arm64
