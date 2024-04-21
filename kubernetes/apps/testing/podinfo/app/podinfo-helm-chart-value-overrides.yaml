@@ -4,7 +4,7 @@ kind: ConfigMap
 metadata:
   creationTimestamp: null
   name: podinfo-helm-chart-value-overrides
-  namespace: podinfo
+  namespace: testing
 data:
   values.yaml: |-
     # Default values for podinfo.
