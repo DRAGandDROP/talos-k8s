@@ -18,10 +18,5 @@ spec:
   interval: 15m
   retryInterval: 1m
   timeout: 5m
-  validation: server
-  healthChecks:
-    - apiVersion: apps/v1
-      kind: Deployment
-      name: podinfo
-      namespace: testing
+
 
